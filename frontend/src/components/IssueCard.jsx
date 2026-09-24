@@ -2,7 +2,7 @@ function IssueCard({ issue, updateIssue, deleteIssue }) {
   const updateIssueData = async (changes) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/issues/${issue._id}`,
+        `https://devtrace-backend-d666.onrender.com/api/issues/${issue._id}`,
         {
           method: "PATCH",
           headers: {
@@ -33,7 +33,7 @@ function IssueCard({ issue, updateIssue, deleteIssue }) {
 
   const handleDelete = async () => {
     try {
-      await fetch(`http://localhost:5000/api/issues/${issue._id}`, {
+      await fetch(`https://devtrace-backend-d666.onrender.com/api/issues/${issue._id}`, {
         method: "DELETE",
       });
 

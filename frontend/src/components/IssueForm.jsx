@@ -19,7 +19,8 @@ function IssueForm({ addIssue }) {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/issues", {
+      const response = await fetch("https://devtrace-backend-d666.onrender.com/api/issues",
+        {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

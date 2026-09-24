@@ -24,7 +24,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/issues")
+    fetch("https://devtrace-backend-d666.onrender.com/api/issues")
       .then((response) => response.json())
       .then((data) => {
         setIssues(data);
