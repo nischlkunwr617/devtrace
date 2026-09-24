@@ -37,8 +37,14 @@ function App() {
   return (
     <div>
       <header>
-        <h1>DevTrace</h1>
-        <p>Your personal debugging knowledge base.</p>
+        <div className="brand">
+          <img src="/devtrace.png" alt="DevTrace logo" />
+
+          <div>
+            <h1>DevTrace</h1>
+            <p>Your personal debugging knowledge base.</p>
+          </div>
+        </div>
       </header>
 
       <main>

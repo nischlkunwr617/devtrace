@@ -46,7 +46,7 @@ app.patch("/api/issues/:id", async (req, res) => {
     const issue = await Issue.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true }
+      { returnDocument: "after" }
     );
 
     res.json(issue);
