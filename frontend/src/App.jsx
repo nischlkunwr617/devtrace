@@ -9,6 +9,20 @@ function App() {
     setIssues((currentIssues) => [...currentIssues, newIssue]);
   };
 
+  const updateIssue = (updatedIssue) => {
+    setIssues((currentIssues) =>
+      currentIssues.map((issue) =>
+        issue._id === updatedIssue._id ? updatedIssue : issue
+      )
+    );
+  };
+
+  const deleteIssue = (id) => {
+    setIssues((currentIssues) =>
+      currentIssues.filter((issue) => issue._id !== id)
+    );
+  };
+
   useEffect(() => {
     fetch("http://localhost:5000/api/issues")
       .then((response) => response.json())
@@ -34,8 +48,19 @@ function App() {
         </section>
 
         <section>
-          <h2>Your Issues</h2>
-          <IssueList issues={issues} />
+          <div className="issues-header">
+            <h2>Your Issues</h2>
+
+            <span>
+              {issues.length} {issues.length === 1 ? "issue" : "issues"}
+            </span>
+          </div>
+
+          <IssueList
+            issues={issues}
+            updateIssue={updateIssue}
+            deleteIssue={deleteIssue}
+          />
         </section>
       </main>
     </div>

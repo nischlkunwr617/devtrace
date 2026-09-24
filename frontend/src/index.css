@@ -5,6 +5,268 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  color: #222;
+  background-color: #0b0d10;
+  color: #f1f1f1;
+}
+
+/* HEADER */
+
+header {
+  background-color: #11151a;
+  border-bottom: 1px solid #222830;
+  padding: 25px 40px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #ffffff;
+}
+
+header p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #7f8b99;
+}
+
+/* MAIN */
+
+main {
+  width: 92%;
+  max-width: 1100px;
+  margin: 35px auto;
+}
+
+section {
+  margin-bottom: 45px;
+}
+
+section h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* FORM */
+
+form {
+  background-color: #11151a;
+  border: 1px solid #222830;
+  border-radius: 12px;
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+
+  background-color: #181d23;
+  color: #ffffff;
+
+  border: 1px solid #29313a;
+  border-radius: 7px;
+
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+
+  outline: none;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #38bdf8;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: #65717e;
+}
+
+/* Problem and solution take full width */
+
+form textarea {
+  grid-column: 1 / 3;
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* SAVE BUTTON */
+
+form button {
+  width: fit-content;
+
+  padding: 10px 18px;
+
+  background-color: #38bdf8;
+  color: #071018;
+
+  border: none;
+  border-radius: 7px;
+
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #7dd3fc;
+}
+
+/* ISSUE GRID */
+
+.issue-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+/* ISSUE CARD */
+
+.issue-card {
+  background-color: #11151a;
+  border: 1px solid #222830;
+  border-radius: 12px;
+
+  padding: 18px;
+}
+
+.issue-card:hover {
+  border-color: #37414c;
+}
+
+.issue-card h3 {
+  margin: 0 0 15px;
+
+  font-size: 17px;
+  color: #ffffff;
+}
+
+.issue-card p {
+  margin: 9px 0;
+
+  color: #8f9ba8;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.issue-card strong {
+  color: #d7dde4;
+}
+
+/* CARD BUTTONS */
+
+.issue-card button {
+  margin-top: 12px;
+  margin-right: 5px;
+
+  padding: 7px 10px;
+
+  background-color: #181d23;
+  color: #b8c2cc;
+
+  border: 1px solid #29313a;
+  border-radius: 6px;
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.issue-card button:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+  .issue-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  header {
+    padding: 22px 20px;
+  }
+
+  main {
+    width: 90%;
+    margin-top: 25px;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  form textarea {
+    grid-column: 1;
+  }
+
+  .issue-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FINAL POLISH */
+
+.issues-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.issues-header h2 {
+  margin: 0;
+}
+
+.issues-header span {
+  font-size: 13px;
+  color: #7f8b99;
+}
+
+.issue-card .solved-button {
+  color: #4ade80;
+  border-color: #245c38;
+}
+
+.issue-card .unsolved-button {
+  color: #f87171;
+  border-color: #633333;
+}
+
+.issue-card .delete-button {
+  color: #f87171;
+}
+
+.issue-card .delete-button:hover {
+  color: #ffffff;
+  background-color: #dc2626;
+  border-color: #dc2626;
+}
+
+.empty-message {
+  text-align: center;
+
+  padding: 40px 20px;
+
+  background-color: #11151a;
+  border: 1px solid #222830;
+  border-radius: 12px;
+}
+
+.empty-message p {
+  margin: 0 0 6px;
+  color: #d7dde4;
+}
+
+.empty-message span {
+  font-size: 13px;
+  color: #7f8b99;
 }

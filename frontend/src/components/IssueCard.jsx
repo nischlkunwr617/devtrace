@@ -1,6 +1,50 @@
-function IssueCard({ issue }) {
+function IssueCard({ issue, updateIssue, deleteIssue }) {
+  const updateIssueData = async (changes) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/issues/${issue._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(changes),
+        }
+      );
+
+      const data = await response.json();
+      updateIssue(data);
+    } catch (error) {
+      console.error("Error updating issue:", error);
+    }
+  };
+
+  const toggleSolved = () => {
+    updateIssueData({
+      solved: !issue.solved,
+    });
+  };
+
+  const happenedAgain = () => {
+    updateIssueData({
+      occurrences: issue.occurrences + 1,
+    });
+  };
+
+  const handleDelete = async () => {
+    try {
+      await fetch(`http://localhost:5000/api/issues/${issue._id}`, {
+        method: "DELETE",
+      });
+
+      deleteIssue(issue._id);
+    } catch (error) {
+      console.error("Error deleting issue:", error);
+    }
+  };
+
   return (
-    <div>
+    <div className="issue-card">
       <h3>{issue.title}</h3>
 
       <p>
@@ -18,6 +62,21 @@ function IssueCard({ issue }) {
       <p>
         <strong>Occurrences:</strong> {issue.occurrences}
       </p>
+
+      <button
+        className={issue.solved ? "solved-button" : "unsolved-button"}
+        onClick={toggleSolved}
+      >
+        {issue.solved ? "Solved" : "Unsolved"}
+      </button>
+
+      <button onClick={happenedAgain}>
+        Happened Again
+      </button>
+
+      <button className="delete-button" onClick={handleDelete}>
+        Delete
+      </button>
     </div>
   );
 }
